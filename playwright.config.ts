@@ -58,12 +58,12 @@ export default defineConfig({
     },
   */
     {
-      name: 'qa-chrome',
+      name: 'qa-firefox',
       use: 
       { 
         baseURL: 'https://en.wikipedia.org/wiki/Main_Page',      
         trace: 'on-first-retry',
-        browserName: 'chromium',
+        browserName: 'firefox',
       },
     },
     {
@@ -76,12 +76,12 @@ export default defineConfig({
       },
     },
     {
-      name: 'prod-chrome',
+      name: 'prod-firefox',
       use: 
       { 
         baseURL: 'https://hu.wikipedia.org/',
         trace: 'on-first-retry',
-        browserName: 'chromium',
+        browserName: 'firefox',
       }
     },
     {
@@ -94,11 +94,12 @@ export default defineConfig({
       }
     },
     // project should use Chrome and Safari, branded or engine was not specified
+    /*
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
-
+    */
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',

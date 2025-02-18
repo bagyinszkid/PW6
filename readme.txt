@@ -37,6 +37,6 @@ the language differences.
 
 I've used these options to run my tests:
 
-For QA : npx playwright test -g '@qa' --project 'qa-chrome' --project 'qa-safari'
-For PROD : npx playwright test -g '@prod' --project 'prod-chrome' --project 'prod-safari'
+For QA : npx playwright test -g '@qa' --project 'qa-firefox' --project 'qa-safari'
+For PROD : npx playwright test -g '@prod' --project 'prod-firefox' --project 'prod-safari'
 
