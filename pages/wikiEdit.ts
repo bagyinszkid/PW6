@@ -12,12 +12,7 @@ export class wikiArticle {
     async pageEdit() {
        this.page.locator('#ca-edit').click();
     }
-/* expecting the modal failed idea
-
-    async editConfirmationDialog() {
-        this.page.getByRole('dialog', { name: 'ooui-1' });
-    }
-*/
+    
     async takeAShot() {
         let now = Date.now();
         // let envPic = process.env.envName; using ${envPic} in screenshotname -- when based on env variables, used this snippet to name the pic
