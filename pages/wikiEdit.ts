@@ -15,8 +15,8 @@ export class wikiArticle {
     
     async takeAShot() {
         let now = Date.now();
-        // let envPic = process.env.envName; using ${envPic} in screenshotname -- when based on env variables, used this snippet to name the pic
-        await this.page.screenshot({ path: `./screenshots/screenshot ${now}.png` });
+        const env = process.env.EnvName as string
+        await this.page.screenshot({ path: `./screenshots/screenshot ${env + "_" + now}.png` });
     }
 
     async pageHistory() {
@@ -25,8 +25,8 @@ export class wikiArticle {
     }
 
     async pageHistoryHelp(buttonName: string) {
-    //    await this.page.locator('#mw-helplink').click();
-        await this.page.getByRole('link', { name: buttonName, exact: true  }).click();
+        const header = this.page.locator('id=mw-indicator-mw-helplink');
+        await header.getByRole('link', { name: buttonName, exact: true  }).click();
     }
 
     async navigateBack() {

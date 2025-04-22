@@ -1,6 +1,6 @@
 Hello!
 
-This is version2 of Task1 in the Playwright Automation School
+This is version3 of Task1 in the Playwright Automation School
 
 ## 1. POM, fixtures, test files
 
@@ -13,7 +13,8 @@ The 'screenshots' folder: collects the screenshots created during testing
 
 
 ## 3. Running the tests
-I've used these options to run my tests:
 
-setting the environment variable: $env:ENV="prod"
-running the test: npx playwright test -g "E2E"
+setting the environment variable: $env:ENV="prod" or $env:"qa"
+running the test: 
+for PROD : npx playwright test -g "E2E" --project chrome
+for QA : npx playwright test -g "E2E"

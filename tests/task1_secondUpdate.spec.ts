@@ -1,9 +1,10 @@
 import { test, expect } from './fixtures';
 
+const baseURL = process.env.URL as string
+
 test('E2E', async ({ page, wikiArticle, wikiMainPage, context }) => {
     
-    console.log(process.env.URL);
-    await page.goto("" + process.env.URL);
+    await page.goto(baseURL);
 
     // #1 verification: Home page is loaded
     await expect(page).toHaveURL("" + process.env.MAINPAGEURL);
