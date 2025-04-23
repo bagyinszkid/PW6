@@ -21,8 +21,6 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    
-  //  baseURL: 'https://en.wikipedia.org/wiki/Main_Page',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -33,11 +31,20 @@ export default defineConfig({
 
     {
       name: 'chrome',
+      testMatch: /.*task1_secondUpdate.spec.ts/,
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'webkit',
+      testMatch: /.*task1_secondUpdate.spec.ts/,
       use: { ...devices['Desktop Safari'] },
+    },
+    {
+      name: 'API',
+      testMatch: /.*API.spec.ts/,
+      use: {
+        baseURL: 'https://reqres.in/api',
+      },
     },
 
   ],
