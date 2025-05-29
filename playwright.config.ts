@@ -1,8 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from "dotenv";
+import path from "path"; 
 
 dotenv.config({
-  path: `./env/.env.${process.env.ENV}`
+  path: path.resolve(__dirname, `./env/.env.${process.env.ENV}`),
 })
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -21,7 +22,7 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-
+    // browserName: 'webkit',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
   },
@@ -44,6 +45,9 @@ export default defineConfig({
       testMatch: /.*API.spec.ts/,
       use: {
         baseURL: 'https://reqres.in/api',
+        extraHTTPHeaders: {
+          'x-api-key': `reqres-free-v1`,
+        },
       },
     },
 

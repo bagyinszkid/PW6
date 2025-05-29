@@ -15,7 +15,7 @@ export class wikiArticle {
     
     async takeAShot() {
         let now = Date.now();
-        const env = process.env.EnvName as string
+        const env = process.env.ENVNAME 
         await this.page.screenshot({ path: `./screenshots/screenshot ${env + "_" + now}.png` });
     }
 
