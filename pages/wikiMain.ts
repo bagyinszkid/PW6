@@ -12,7 +12,7 @@ export class wikiMainPage {
         await this.page.goto('');
     }
 // had to assign .first() on the function, as the hungarian wikipedia had two results for this for some reason
-    async wikiSearch(placeholder: string, query: string) {
+    async wikiSearch(placeholder, query) {
         await this.page.getByPlaceholder(placeholder).first().fill(query);
     }
 }

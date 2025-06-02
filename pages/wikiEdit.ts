@@ -24,7 +24,7 @@ export class wikiArticle {
 
     }
 
-    async pageHistoryHelp(buttonName: string) {
+    async pageHistoryHelp(buttonName) {
         const header = this.page.locator('id=mw-indicator-mw-helplink');
         await header.getByRole('link', { name: buttonName, exact: true,  }).click();
     }
@@ -35,7 +35,7 @@ export class wikiArticle {
         await this.page.reload();
     }
 
-    async wikiLanguageChange(placeholder: string, language: string) {
+    async wikiLanguageChange(placeholder, language) {
     // language param should be the native name and string of characters in the selected language
     // like selecting "Japanese" will be language=日本語
     // had to implement force:true on click because of this Bug: https://github.com/microsoft/playwright/issues/12298
