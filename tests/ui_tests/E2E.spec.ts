@@ -2,7 +2,6 @@ import { test, expect } from '../../pages/fixtures.ts';
 
 // move these out ?
 const baseURL = process.env.URL as string;
-const wikiMainPageURL = process.env.MAINPAGEURL as string;
 const languageOption = process.env.LANGUAGEOPTION as string;
 const languageSelect = process.env.LANGUAGE as string;
 
@@ -16,8 +15,8 @@ test('E2E', async ({ page, wikiArticle, wikiMainPage, util, context, browserName
     await page.goto(baseURL);
 
     // #1 verification: Home page is loaded
-    // but is it loaded? we don't know: 
-    await expect(page).toHaveURL(wikiMainPageURL);
+   
+    await expect(page.getByRole('link', { name: 'Wikidata', exact: true })).toBeVisible();
     
     // #2 header is expected and take a screenshot
 
@@ -30,10 +29,10 @@ test('E2E', async ({ page, wikiArticle, wikiMainPage, util, context, browserName
     await wikiArticle.pageEdit();
     await expect(page.getByRole('button', { name: process.env.EDITLINK })).toBeVisible();
     
-    // #4 modal is hidden and editing page is shown
+    // #4 Start Editing: modal is hidden and editing page is shown
    
-    await page.getByRole('button', {name: process.env.EDITLINK }).click();
-    await expect(page.getByRole('button', {name: process.env.EDITLINK })).not.toBeVisible();
+    await wikiArticle.startEditingConfirm();
+    await expect(page.getByRole('button', { name: process.env.EDITLINK })).not.toBeVisible();
 
     // #5 Help page opens in a new tab and its URL is expected
    
@@ -48,6 +47,7 @@ test('E2E', async ({ page, wikiArticle, wikiMainPage, util, context, browserName
 
    await wikiArticle.navigateBack();
    await wikiArticle.wikiLanguageChange(languageOption, languageSelect);
+   await expect(page.getByRole('heading', {name: process.env.QUERY, exact: true })).toBeVisible();
    await util.takeAPic();
    
  }

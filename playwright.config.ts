@@ -42,7 +42,7 @@ export default defineConfig({
     },
     {
       name: 'API',
-      // testMatch: /.*API.spec.ts/,
+      testMatch: /.*API.spec.ts/,
       use: {
         baseURL: 'https://reqres.in/api',
         extraHTTPHeaders: {

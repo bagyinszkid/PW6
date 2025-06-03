@@ -49,4 +49,8 @@ export class wikiArticle {
         await this.page.getByRole('link', { name: language }).first().click({ force: true })
     }
 
+    async startEditingConfirm() {
+        await this.page.getByRole('button', {name: process.env.EDITLINK }).click();
+    }
+
 }
