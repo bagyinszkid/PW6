@@ -9,6 +9,7 @@ export class wikiArticle {
     readonly historyOfArticeButton : Locator;
     readonly historyPageHelp : Locator;
     readonly languageSelector : Locator;
+    readonly editStartButton : Locator;
 
     constructor(page: Page) {
 
@@ -17,6 +18,7 @@ export class wikiArticle {
         this.historyOfArticeButton = page.locator('#ca-history');
         this.historyPageHelp = page.locator('id=mw-indicator-mw-helplink').getByRole('link', { name: process.env.HELP, exact: true });
         this.languageSelector = page.locator('id=p-lang-btn');
+        this.editStartButton = page.getByRole('button', { name: process.env.EDITLINK })
 
     }
 
@@ -50,7 +52,7 @@ export class wikiArticle {
     }
 
     async startEditingConfirm() {
-        await this.page.getByRole('button', {name: process.env.EDITLINK }).click();
+        await this.page.getByRole('button', { name: process.env.EDITLINK }).click();
     }
 
 }

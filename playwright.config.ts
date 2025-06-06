@@ -1,9 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from "dotenv";
-import path from "path"; 
+import dotenv from 'dotenv';
+import path from 'path'; 
 
 dotenv.config({
-  path: path.resolve(__dirname, `./env/.env.${process.env.ENV}`),
+  path: `./env/.env.${process.env.ENV}`
 })
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -44,9 +44,9 @@ export default defineConfig({
       name: 'API',
       testMatch: /.*API.spec.ts/,
       use: {
-        baseURL: 'https://reqres.in/api',
+        // baseURL: 'https://reqres.in/api',
         extraHTTPHeaders: {
-          'x-api-key': `reqres-free-v1`,
+          'x-api-key': process.env.API_KEY!,
         },
       },
     },
