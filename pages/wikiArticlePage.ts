@@ -25,18 +25,15 @@ export class wikiArticle {
     async pageEdit() {
        await this.editArticleButton.click();
     }
-    
 
     async pageHistory() {
         await this.historyOfArticeButton.click();
-
     }
 
     async openHistoryPageHelp() {
         await this.historyPageHelp.click();
     }
 
-    //replace with URL navigation
     async navigateBack() {
         await this.page.goto(articleURL);
     }

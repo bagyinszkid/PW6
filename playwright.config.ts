@@ -32,19 +32,16 @@ export default defineConfig({
 
     {
       name: 'chrome',
-      // testMatch: /.*task1_secondUpdate.spec.ts/,
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'webkit',
-      // testMatch: /.*task1_secondUpdate.spec.ts/,
       use: { ...devices['Desktop Safari'] },
     },
     {
       name: 'API',
       testMatch: /.*API.spec.ts/,
       use: {
-        // baseURL: 'https://reqres.in/api',
         extraHTTPHeaders: {
           'x-api-key': process.env.API_KEY!,
         },
