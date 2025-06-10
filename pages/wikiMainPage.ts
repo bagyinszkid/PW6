@@ -11,8 +11,7 @@ export class wikiMainPage {
     constructor(page: Page) {
 
         this.page = page;
-    /*    this.topPageSearch = page.getByPlaceholder(search).first();
-        this.getFirstResult = page.getByRole("option").first();*/
+
     }
 
 // had to assign .first() on the function, as the hungarian wikipedia had two results for this for some reason

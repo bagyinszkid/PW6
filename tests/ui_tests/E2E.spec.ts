@@ -40,7 +40,7 @@ test('E2E', async ({ page, wikiArticle, wikiMainPage, util, context, browserName
 
    await wikiArticle.navigateBack();
    await wikiArticle.wikiLanguageChange(process.env.LANGUAGEOPTION!, process.env.LANGUAGE!);
-   await expect(util.pageHeader).toBeVisible();
+   await expect(util.pageHeaderAfterChange).toBeVisible();
    await util.takeAPic();
    
  }

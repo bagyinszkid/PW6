@@ -5,12 +5,14 @@ export class util {
     readonly page: Page;
     //readonly selectLink: Locator;
     readonly pageHeader: Locator;
+    readonly pageHeaderAfterChange: Locator;
 
     constructor (page: Page) {
         
         this.page = page;
         //this.selectLink = page.getByRole('link', {});
         this.pageHeader = page.getByRole('heading', { name: process.env.QUERY, exact: true });
+        this.pageHeaderAfterChange = page.getByRole('heading', { name: process.env.QUERY_CHANGED, exact: true });
     }
 
     async takeAPic() {
