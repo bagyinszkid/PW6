@@ -5,10 +5,12 @@ import { Locator, type Page } from '@playwright/test';
 export class wikiMainPage {
 
     readonly page: Page;
+    readonly wikiDataPortal: Locator;
 
     constructor(page: Page) {
 
         this.page = page;
+        this.wikiDataPortal = page.getByRole('link', { name: 'Wikidata', exact: true });
     }
 
 // had to assign .first() on the function, as the hungarian wikipedia had two results for this for some reason

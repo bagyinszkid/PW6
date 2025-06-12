@@ -9,7 +9,7 @@ test('E2E', async ({ page, wikiArticle, wikiMainPage, util, context, browserName
 
     // #1 verification: Home page is loaded
    
-    await expect(page.getByRole('link', { name: 'Wikidata', exact: true })).toBeVisible();
+    await expect(wikiMainPage.wikiDataPortal).toBeVisible();
     
     // #2 header is expected and take a screenshot
 
