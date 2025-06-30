@@ -13,7 +13,7 @@ test('E2E', async ({ page, wikiArticle, wikiMainPage, util, context, browserName
     
     // #2 header is expected and take a screenshot
 
-    await wikiMainPage.wikiSearch(process.env.QUERY);
+    await wikiMainPage.wikiSearch();
     await expect(util.pageHeader).toBeVisible();
     await util.takeAPic();
 
@@ -39,7 +39,7 @@ test('E2E', async ({ page, wikiArticle, wikiMainPage, util, context, browserName
    // #6 Navigate back, Appropriate article opens, take a screenshot
 
    await wikiArticle.navigateBack();
-   await wikiArticle.wikiLanguageChange(process.env.LANGUAGEOPTION!, process.env.LANGUAGE!);
+   await wikiArticle.wikiLanguageChange();
    await expect(util.pageHeaderAfterChange).toBeVisible();
    await util.takeAPic();
    
