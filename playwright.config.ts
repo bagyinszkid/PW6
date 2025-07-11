@@ -1,6 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
-import path from 'path'; 
+import dotenv from 'dotenv'; 
 
 dotenv.config({
   path: `./env/.env.${process.env.ENV}`
