@@ -13,7 +13,7 @@ export class wikiMainPage {
     constructor(page: Page) {
 
         this.page = page;
-        this.wikiDataPortal = page.getByRole('link', { name: 'Wikidata', exact: true });
+        this.wikiDataPortal = page.getByRole('link', { name: 'Wikidata' }).first();
         this.getSearchBar = page.getByPlaceholder(process.env.SEARCH!).first();
         this.getFirstResult = page.getByRole("option").first();
         this.pageHeader = page.getByRole('heading', { name: process.env.QUERY, exact: true });
